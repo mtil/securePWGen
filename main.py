@@ -1,35 +1,18 @@
 import random
 import string
 
-pwLength = 16
-alphaNum = (string.ascii_letters + string.digits + string.punctuation)
-alphaLower = string.ascii_lowercase
-alphaUpper = string.ascii_uppercase
-alphaNum = string.digits
-alphaSpecial = string.punctuation
-newPw = []
-
-def pathSelect():
-    pick = random.randint(1,4)
-    getNextChar = getRandomChar(pick)
-    return getNextChar
-
-def getRandomChar(x):
+def password(length=16):
     switcher = {
-        1: random.choice(alphaLower),
-        2: random.choice(alphaUpper),
-        3:random.choice(alphaNum),
-        4: random.choice(alphaSpecial)
+        1: string.ascii_lowercase,
+        2: string.ascii_uppercase,
+        3: string.digits,
+        4: string.punctuation
     }
-    addToPW = switcher.get(x)
-    newPw.append(addToPW)
-    while len(newPw) < pwLength:
-        pathSelect()
 
-pathSelect()
-print(newPw[0]+newPw[1]+newPw[2]+newPw[3]+newPw[4]+newPw[5]+newPw[6]+newPw[7]+newPw[8]+newPw[9]+newPw[10]+newPw[11]+newPw[12]+newPw[13]+newPw[14]+newPw[15])
+    def new_char():
+        return random.choice(switcher[random.randint(1, 4)])
 
+    return ''.join(new_char() for _ in range(length))
 
-
-
-
+print(password())
+print(password(8))
