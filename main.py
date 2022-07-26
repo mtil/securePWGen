@@ -16,3 +16,19 @@ def password(length=16):
 
 print(password())
 print(password(8))
+
+
+
+# import random
+# import string
+#
+# def password(length=16):
+#     modes = [string.ascii_lowercase, string.ascii_uppercase, string.digits, string.punctuation]
+#     chars = []
+#     for i in range(length):
+#         chars.append(random.choice(random.choice(modes)))
+#
+#     return ''.join(chars)
+#
+# print(password())
+# print(password(8))
